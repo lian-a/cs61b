@@ -44,7 +44,7 @@ public class ArrayDeque {
     }
 
     public void addLast(int item) {
-        if (nextLast == Items[Items.length]) {
+        if (nextLast == Items.length) {
             nextLast = 0;
         }
         if (this.isFull()) {
@@ -76,7 +76,10 @@ public class ArrayDeque {
     }
 
     public void printDeque() {
-        return ;
+        for(int i = 0; i < size - 1; i++) {
+            System.out.print(get(i) + " ");
+        }
+        System.out.println(get(size - 1));
     }
     public int get(int index) {
         if (index + nextFirst < Items.length) {
@@ -99,8 +102,10 @@ public class ArrayDeque {
         return size;
     }
 
-    public void main(String[] args) {
-        ArrayDeque l = new ArrayDeque();
-        l.addFirst(10);
-    }
+//    public static void main(String[] args) {
+//        ArrayDeque l = new ArrayDeque();
+//        l.addFirst(10);
+//        l.addLast(20);
+//        l.printDeque();
+//    }
 }
