@@ -65,7 +65,7 @@ public class ArrayDeque<T> {
         if (items.length >= 16 && size < items.length / 4) {
             resize();
         }
-        return items[nextFirst - 1];
+        return items[nextFirst];
     }
 
     public T removeLast() {
@@ -74,7 +74,7 @@ public class ArrayDeque<T> {
         if (items.length >= 16 && size < items.length / 4) {
             resize();
         }
-        return items[nextLast + 1];
+        return items[nextLast];
     }
 
     public void printDeque() {
@@ -121,6 +121,9 @@ public class ArrayDeque<T> {
 //        l.addLast(7);
 //        l.addLast(8);
 //        l.addLast(9);
+//        System.out.println(l.removeFirst());
+//        l.removeLast();
+//        l.removeLast();
 //        l.printDeque();
 //    }
 }

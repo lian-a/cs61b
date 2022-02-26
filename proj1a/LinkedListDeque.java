@@ -24,15 +24,15 @@ public class LinkedListDeque<T> {
         size = 0;
     }
 
-    public LinkedListDeque(LinkedListDeque other) {
-        LinkedListDeque<T> temp = new LinkedListDeque<>();
-        IntNode p = other.sentinel;
-        while (p.next.item != null) {
-            temp.addLast(p.next.item);
-            p = p.next;
-        }
-        size = other.size;
-    }
+//    public LinkedListDeque(LinkedListDeque other) {
+//        LinkedListDeque<T> temp = new LinkedListDeque<>();
+//        IntNode p = other.sentinel;
+//        while (p.next.item != null) {
+//            temp.addLast(p.next.item);
+//            p = p.next;
+//        }
+//        size = other.size;
+//    }
 
     public void addFirst(T item) {
         sentinel.next = new IntNode(sentinel, item, sentinel.next);
@@ -54,7 +54,7 @@ public class LinkedListDeque<T> {
     }
 
     public int size() {
-        if (size < 0){
+        if (size < 0) {
             return 0;
         }
         return size;
@@ -89,12 +89,12 @@ public class LinkedListDeque<T> {
     }
 
     public T get(int index) {
-        LinkedListDeque<T> temp = new LinkedListDeque<> (this);
+        IntNode p = sentinel.next;
         while (index > 0) {
-            temp.removeFirst();
+            p = p.next;
             index -= 1;
         }
-        return temp.sentinel.next.item;
+        return p.item;
     }
 
     private T helper(int i, IntNode N) {
