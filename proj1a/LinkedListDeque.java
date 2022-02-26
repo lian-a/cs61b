@@ -27,7 +27,7 @@ public class LinkedListDeque<T> {
     public LinkedListDeque(LinkedListDeque other) {
         LinkedListDeque<T> temp = new LinkedListDeque<>();
         IntNode p = other.sentinel;
-        while(p.next.item != null){
+        while (p.next.item != null) {
             temp.addLast(p.next.item);
             p = p.next;
         }
@@ -47,23 +47,26 @@ public class LinkedListDeque<T> {
     }
 
     public boolean isEmpty() {
-        if(size == 0){
+        if (size == 0) {
             return true;
         }
         return false;
     }
 
     public int size() {
+        if (size < 0){
+            return 0;
+        }
         return size;
     }
     public void printDeque() {
         IntNode temp = sentinel;
-        while(temp.next.item != null){
+        while (temp.next.item != null) {
             temp = temp.next;
             System.out.print(temp.item);
-            if(temp.next.item != null){
+            if (temp.next.item != null) {
                 System.out.print(" ");
-            }else{
+            } else {
                 System.out.println();
             }
         }
@@ -87,18 +90,17 @@ public class LinkedListDeque<T> {
 
     public T get(int index) {
         LinkedListDeque<T> temp = new LinkedListDeque<> (this);
-        while(index > 0){
+        while (index > 0) {
             temp.removeFirst();
             index -= 1;
         }
         return temp.sentinel.next.item;
     }
 
-
-    public T helper(int i, IntNode N) {
-        if (i == 0){
+    private T helper(int i, IntNode N) {
+        if (i == 0) {
             return N.item;
-        }else{
+        } else {
             return helper(i - 1, N.next);
         }
     }
