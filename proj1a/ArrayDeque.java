@@ -62,19 +62,21 @@ public class ArrayDeque<T> {
             nextFirst += 1;
         }
         size -= 1;
+        T x = items[nextFirst];
         if (items.length >= 16 && size < items.length / 4) {
             resize();
         }
-        return items[nextFirst];
+        return x;
     }
 
     public T removeLast() {
         nextLast -= 1;
         size -= 1;
+        T x = items[nextLast];
         if (items.length >= 16 && size < items.length / 4) {
             resize();
         }
-        return items[nextLast];
+        return x;
     }
 
     public void printDeque() {
@@ -122,8 +124,16 @@ public class ArrayDeque<T> {
 //        l.addLast(8);
 //        l.addLast(9);
 //        System.out.println(l.removeFirst());
-//        l.removeLast();
-//        l.removeLast();
+//        System.out.println(l.removeLast());
+//        System.out.println(l.removeLast());
+//        System.out.println(l.removeFirst());
+//        System.out.println(l.removeFirst());
+//        System.out.println(l.removeFirst());
+//        System.out.println(l.removeFirst());
+//        System.out.println(l.removeFirst());
+//        System.out.println(l.removeFirst());
+////        l.removeLast();
+////        l.removeLast();
 //        l.printDeque();
 //    }
 }
