@@ -90,7 +90,7 @@ public class ArrayDeque<T> {
             System.out.print(get(i) + " ");
         }
         if (size > 0) {
-        System.out.println(get(size - 1));
+            System.out.println(get(size - 1));
         }
     }
     public T get(int index) {
@@ -118,14 +118,14 @@ public class ArrayDeque<T> {
         return size;
     }
 
-    public static void main(String[] args) {
-        ArrayDeque l = new ArrayDeque();
-        l.addFirst(0);
-        l.addFirst(1);
-
-        System.out.println(l.removeFirst());
-        System.out.println(l.removeFirst());
-
-        l.printDeque();
-    }
+//    public static void main(String[] args) {
+//        ArrayDeque l = new ArrayDeque();
+//        l.addFirst(0);
+//        l.addFirst(1);
+//
+//        System.out.println(l.removeFirst());
+//        System.out.println(l.removeFirst());
+//
+//        l.printDeque();
+//    }
 }
