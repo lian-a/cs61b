@@ -113,8 +113,7 @@ public class IntList {
 //            return new IntList(A.first, B);
         return new IntList(A.first, catenate(A.rest, B));
     }
-    /*this method is genius*/
-/**
+    /**my solution has failed and this method is genius*/
     public static IntList reverse(IntList A) {
         if (A == null) {
             return A;
@@ -127,9 +126,9 @@ public class IntList {
         }
         return reversed;
     }
-*/
 
-    public IntList addFirst(int item) {
+
+    /**public IntList addFirst(int item) {
         if (this == null) {
             return new IntList(item,null);
         }
@@ -148,7 +147,7 @@ public class IntList {
         }
         A = temp;
         return A;
-    }
+    }*/
 
 
 
