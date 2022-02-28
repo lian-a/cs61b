@@ -115,15 +115,12 @@ public class IntList {
     }
     /**my solution has failed and this method is genius*/
     public static IntList reverse(IntList A) {
-        if (A == null) {
+        if (A == null || A.rest == null) {
             return A;
         }
-        IntList reversed, restOfList;
-        for (reversed = null; A != null; A = restOfList) {
-            restOfList = A.rest;
-            A.rest = reversed;
-            reversed = A;
-        }
+        IntList reversed = reverse(A.rest);
+        A.rest.rest = A;
+        A.rest = null;
         return reversed;
     }
 
