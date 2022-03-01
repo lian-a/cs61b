@@ -114,6 +114,7 @@ public class IntList {
         return new IntList(A.first, catenate(A.rest, B));
     }
     /**my solution has failed and this method is genius*/
+    /**we can also approach this section iteratively*/
     public static IntList reverse(IntList A) {
         if (A == null || A.rest == null) {
             return A;
