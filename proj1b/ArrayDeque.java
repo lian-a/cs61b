@@ -11,6 +11,7 @@ public class ArrayDeque<T> implements Deque<T> {
         nextLast = 1;
     }
 
+    @Override
     public boolean isEmpty() {
         return (size == 0);
     }
