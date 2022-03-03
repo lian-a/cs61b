@@ -9,12 +9,16 @@ public class TestOffByOne {
     // Your tests go here.
     @Test
     public void testequalChar() {
-        Character input1 = 'a';
-        Character expected1 = 'a';
-        Character expected2 = 'b';
-        Character expected3 = 'c';
-        assertFalse(offByOne.equalChars(input1, expected1));
-        assertTrue(offByOne.equalChars(input1, expected2));
-        assertFalse(offByOne.equalChars(input1, expected3));
+        Character input2 = 'a';
+        Character input3 = 'b';
+        Character input4 = 'A';
+        Character input5 = 'B';
+        Character input6 = 0;
+        assertFalse(offByOne.equalChars(input2, input2));
+        assertTrue(offByOne.equalChars(input2, input3));
+        assertTrue(offByOne.equalChars(input5, input4));
+        assertFalse(offByOne.equalChars(input6, input5));
+        assertFalse(offByOne.equalChars(input6, input6));
+
     }
 }
