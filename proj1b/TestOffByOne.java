@@ -8,7 +8,6 @@ public class TestOffByOne {
 
     // Your tests go here.
     @Test
-    /**Uncomment this class once you've created your CharacterComparator interface and OffByOne class. */
     public void testequalChar() {
         Character input1 = 'a';
         Character expected1 = 'a';

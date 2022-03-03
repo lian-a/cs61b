@@ -35,7 +35,7 @@ public class Palindrome {
         return helper(items);
     }
 
-    private boolean helper2(Deque<Character> items,CharacterComparator cc) {
+    private boolean helper2(Deque<Character> items, CharacterComparator cc) {
         if (items.isEmpty() || items.size() == 1) {
             return true;
         }
@@ -47,6 +47,6 @@ public class Palindrome {
     }
     public boolean isPalindrome(String word, CharacterComparator cc) {
         Deque items = wordToDeque(word);
-        return helper2(items,cc);
+        return helper2(items, cc);
     }
 }
