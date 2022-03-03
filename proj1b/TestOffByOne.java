@@ -15,6 +15,8 @@ public class TestOffByOne {
         Character input5 = 'B';
         Character input6 = 0;
         assertFalse(offByOne.equalChars(input2, input2));
+        assertFalse(offByOne.equalChars(input2, input5));
+        assertFalse(offByOne.equalChars(input2, input4));
         assertTrue(offByOne.equalChars(input2, input3));
         assertTrue(offByOne.equalChars(input5, input4));
         assertFalse(offByOne.equalChars(input6, input5));
