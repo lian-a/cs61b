@@ -17,18 +17,22 @@ public class TestArrayDequeGold {
                     Integer x = student.removeFirst();
                     Integer y = solution.removeFirst();
                     assertEquals("removeFirst()\n", x, y);
+                    System.out.println("removeFirst()");
                 } else {
                     Integer x = student.removeLast();
                     Integer y = solution.removeLast();
                     assertEquals("removeLast\n", x, y);
+                    System.out.println("removeLast()");
                 }
             } else if (flag >= 0.5) {
                 if (flag < 0.75) {
                     student.addFirst(i);
                     solution.addFirst(i);
+                    System.out.println("addFirst(" + i + ")");
                 } else {
                     student.addLast(i);
                     solution.addLast(i);
+                    System.out.println("addLast(" + i + ")");
                 }
             }
         }
