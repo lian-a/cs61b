@@ -21,7 +21,7 @@ public class TestArrayDequeGold {
                 } else {
                     Integer x = student.removeLast();
                     Integer y = solution.removeLast();
-                    assertEquals("removeLast\n", x, y);
+                    assertEquals("removeLast()\n", x, y);
                     System.out.println("removeLast()");
                 }
             } else if (flag >= 0.5) {
