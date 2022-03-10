@@ -35,7 +35,7 @@ public class GuitarString {
         //
         //       Make sure that your random numbers are different from each other.
         while (!buffer.isEmpty()) {
-            buffer.enqueue(Math.random() - 0.5);
+            buffer.dequeue();
         }
         while (!buffer.isFull()) {
             double r = Math.random() - 0.5;
