@@ -12,14 +12,15 @@ public class GuitarString {
     /* Buffer for storing sound data. */
     private BoundedQueue<Double> buffer;    /*can an interface been initialized?*/
 
+    /*why this class doesn't need to either implements or extends?*/
     /* Create a guitar string of the given frequency.  */
     public GuitarString(double frequency) {
         // TODO: Create a buffer with capacity = SR / frequency. You'll need to
         //       cast the result of this divsion operation into an int. For better
         //       accuracy, use the Math.round() function before casting.
         //       Your buffer should be initially filled with zeros.
-        int capa = (int) Math.round(SR / frequency);/*why this class doesn't need to either implements or extends?*/
-        buffer = new ArrayRingBuffer<Double>(capa); /*why i need to use "Double" instead of "double"?*/
+        int capa = (int) Math.round(SR / frequency);
+        buffer = new ArrayRingBuffer<Double>(capa); /*"Double" instead of "double"?*/
         for (int i = 0; i < capa; i += 1) { /*如何将数组全部填充为0*/
             buffer.enqueue(0.0);
         }
@@ -52,7 +53,7 @@ public class GuitarString {
         double temp = buffer.dequeue();
         double peak = buffer.peek();
         double fi = (temp + peak) * DECAY * 0.5;
-//        buffer.enqueue(fi);
+        buffer.enqueue(fi);
     }
 
     /* Return the double at the front of the buffer. */

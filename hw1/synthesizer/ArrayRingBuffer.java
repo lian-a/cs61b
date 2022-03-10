@@ -1,5 +1,5 @@
 // TODO: Make sure to make this class a part of the synthesizer package
- package synthesizer;
+package synthesizer;
 import java.util.Iterator;
 
 //TODO: Make sure to make this class and all of its methods public
@@ -30,7 +30,7 @@ public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T> {
         //       you'll need to use this.capacity to set the capacity.
         first = 0;
         last = 0;
-        fillCount = 0;/*可以first = last = fillCount = 0;*/
+        fillCount = 0; /*可以first = last = fillCount = 0;*/
         rb = (T[]) new Object[capacity];    /*the initialization of generic array*/
         this.capacity = capacity;       /*need to know why here use "this.capacity"*/
     }
