@@ -9,6 +9,9 @@ public class PercolationStats {
     private double[] counts;
     private Percolation temp;
     public PercolationStats(int N, int T, PercolationFactory pf) {
+        if (N <= 0 || T <= 0) {
+            throw new java.lang.IllegalArgumentException();
+        }
         times = T;
         size = N;
         counts = new double[N * N];
@@ -24,7 +27,7 @@ public class PercolationStats {
             int col = StdRandom.uniform(size);
             simu.open(row, col);
         }
-        return Double.valueOf(simu.numberOfOpenSites()) / (size * size);
+        return (double) simu.numberOfOpenSites() / (size * size);
     }
 
     public double mean() {
