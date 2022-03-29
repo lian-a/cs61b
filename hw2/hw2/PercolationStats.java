@@ -37,7 +37,7 @@ public class PercolationStats {
         return mean() + 1.96 * stddev() / Math.sqrt(times);
     }
 
-    public double confidenceLOw() {
+    public double confidenceLow() {
         return mean() - 1.96 * stddev() / Math.sqrt(times);
     }
 }

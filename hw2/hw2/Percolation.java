@@ -4,14 +4,14 @@ import edu.princeton.cs.algs4.WeightedQuickUnionUF;
 
 public class Percolation {
     private int N;
-    private int NumOfOpen = 0;
+    private int numOfOpen = 0;
     private int topRoot;
     private int bottomRoot;
     private WeightedQuickUnionUF model;
-    private int[] Sites;
+    private int[] sites;
 
     public Percolation(int N) {
-        Sites = new int[N * N];
+        sites = new int[N * N];
         topRoot = N * N;
         bottomRoot = N * N + 1;
         this.N = N;
@@ -22,7 +22,7 @@ public class Percolation {
         }
     }
 
-    private boolean OutOfDex(int row, int col) {
+    private boolean outOfDex(int row, int col) {
         return (row < 0 || col < 0 || row >= N || col >= N);
     }
     private int xyTo1D(int row, int col) {
@@ -30,21 +30,21 @@ public class Percolation {
     }
 
     public void open(int row, int col) {
-        if (OutOfDex(row, col)) {
+        if (outOfDex(row, col)) {
             throw new java.lang.IndexOutOfBoundsException();
         } else {
             if (isOpen(row, col)) {
-                return ;
+                return;
             }
-            NumOfOpen += 1;
-            int Num = xyTo1D(row, col);
-            Sites[Num] = 1;
-            if (Num < N) {
-                model.union(Num, topRoot);
+            numOfOpen += 1;
+            int num = xyTo1D(row, col);
+            sites[num] = 1;
+            if (num < N) {
+                model.union(num, topRoot);
             }
             if (row == N - 1) {
                 if (isFull(row, col)) {
-                    model.union(Num, bottomRoot);
+                    model.union(num, bottomRoot);
                 }
             }
             int[] around = new int[4];
@@ -52,32 +52,32 @@ public class Percolation {
             around[1] = xyTo1D(row, col + 1);
             around[2] = xyTo1D(row + 1, col);
             around[3] = xyTo1D(row, col - 1);
-            if (!OutOfDex(row - 1, col) && isOpen(row - 1, col)) {
-                model.union(Num, around[0]);
+            if (!outOfDex(row - 1, col) && isOpen(row - 1, col)) {
+                model.union(num, around[0]);
             }
-            if (!OutOfDex(row, col + 1) && isOpen(row, col + 1)) {
-                model.union(Num, around[1]);
+            if (!outOfDex(row, col + 1) && isOpen(row, col + 1)) {
+                model.union(num, around[1]);
             }
-            if (!OutOfDex(row + 1, col) && isOpen(row + 1, col)) {
-                model.union(Num, around[2]);
+            if (!outOfDex(row + 1, col) && isOpen(row + 1, col)) {
+                model.union(num, around[2]);
             }
-            if (!OutOfDex(row, col - 1) && isOpen(row, col - 1)) {
-                model.union(Num, around[3]);
+            if (!outOfDex(row, col - 1) && isOpen(row, col - 1)) {
+                model.union(num, around[3]);
             }
         }
     }
 
     public boolean isOpen(int row, int col) {
-        if (OutOfDex(row, col)) {
+        if (outOfDex(row, col)) {
             throw new java.lang.IndexOutOfBoundsException();
         } else {
             int Num = xyTo1D(row, col);
-            return (Sites[Num] == 1);
+            return (sites[Num] == 1);
         }
     }
 
     public boolean isFull(int row, int col) {
-        if (OutOfDex(row, col)) {
+        if (outOfDex(row, col)) {
             throw new java.lang.IndexOutOfBoundsException();
         } else {
             int Num = xyTo1D(row, col);
@@ -86,7 +86,7 @@ public class Percolation {
     }
 
     public int numberOfOpenSites() {
-        return NumOfOpen;
+        return numOfOpen;
     }
 
     public boolean percolates() {
