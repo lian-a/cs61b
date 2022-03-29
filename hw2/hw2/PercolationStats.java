@@ -14,7 +14,7 @@ public class PercolationStats {
         }
         times = T;
         size = N;
-        counts = new double[N * N];
+        counts = new double[T];
         for (int j = 0; j < T; j += 1) {
             temp = pf.make(size);
             counts[j] = simulation(temp);
