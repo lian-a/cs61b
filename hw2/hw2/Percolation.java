@@ -43,9 +43,7 @@ public class Percolation {
                 model.union(num, topRoot);
             }
             if (row == N - 1) {
-                if (isFull(row, col)) {
-                    model.union(num, bottomRoot);
-                }
+                model.union(num, bottomRoot);
             }
             int[] around = new int[4];
             around[0] = xyTo1D(row - 1, col);
@@ -71,8 +69,8 @@ public class Percolation {
         if (outOfDex(row, col)) {
             throw new java.lang.IndexOutOfBoundsException();
         } else {
-            int Num = xyTo1D(row, col);
-            return (sites[Num] == 1);
+            int num = xyTo1D(row, col);
+            return (sites[num] == 1);
         }
     }
 
@@ -80,8 +78,8 @@ public class Percolation {
         if (outOfDex(row, col)) {
             throw new java.lang.IndexOutOfBoundsException();
         } else {
-            int Num = xyTo1D(row, col);
-            return model.connected(Num, topRoot);
+            int num = xyTo1D(row, col);
+            return model.connected(num, topRoot);
         }
     }
 
