@@ -22,11 +22,7 @@ public class SimpleOomage implements Oomage {
                 return false;
             }
             SimpleOomage that = (SimpleOomage) o;
-            if (this.red == that.red && this.green == that.green && this.blue == that.blue) {
-                return true;
-            } else {
-                return false;
-            }
+            return (this.red == that.red && this.green == that.green && this.blue == that.blue);
         }
     }
 
@@ -39,7 +35,7 @@ public class SimpleOomage implements Oomage {
             return red + green + blue;
         } else {
             // Write a perfect hash function for Simple Oomages.
-            return red / 5 * 51 + green / 5 * 51 * 51 + blue / 5 * 5 ^ 3;
+            return red / 5 * 51 + green / 5 * 51 * 51 + blue / 5 * 51 * 51 * 51;
         }
     }
 

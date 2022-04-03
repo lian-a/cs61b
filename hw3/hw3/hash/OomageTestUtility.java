@@ -13,7 +13,7 @@ public class OomageTestUtility {
          * Oomages and no bucket has more than N / 2.5 Oomages.
          */
         int[] array = new int[M];
-        int size = oomages.size();;
+        int size = oomages.size();
         for (int i = 0; i < size; i += 1) {
             Oomage temp = oomages.get(i);
             int bucketNum = (temp.hashCode() & 0x7FFFFFFF) % M;
