@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
-
+import java.util.Set;
 import java.util.HashSet;
 import java.util.List;
 import java.util.ArrayList;
@@ -28,11 +28,17 @@ public class TestSimpleOomage {
           meaning no two SimpleOomages should EVER have the same
           hashCode UNLESS they have the same red, blue, and green values!
          */
-        SimpleOomage o1 = new SimpleOomage(5, 10, 20);
-        SimpleOomage o2 = new SimpleOomage(5, 10, 20);
-        SimpleOomage o3 = new SimpleOomage(10, 5, 20);
-        assertEquals(o1.hashCode(), o2.hashCode());
-        assertNotEquals(o2.hashCode(), o3.hashCode());
+         /* actually this test is copied form pigFly*/
+        Set<Integer> allPossibleHashCodes = new HashSet<>();
+        for (int r = 0; r <= 255; r += 5) {
+            for (int g = 0; g <= 255; g += 5) {
+                for (int b = 0; b <= 255; b += 5) {
+                    SimpleOomage tmp = new SimpleOomage(r, g, b);
+                    allPossibleHashCodes.add(tmp.hashCode());
+                }
+            }
+        }
+        assertEquals(52 * 52 * 52, allPossibleHashCodes.size());
     }
 
     @Test
